@@ -1,3 +1,7 @@
+## 0.1.1
+
+* Expand `share_plus` dependency constraint to `>=10.0.0 <14.0.0` for full compatibility with apps on `share_plus` 13.x.
+
 ## 0.1.0
 
 * Initial release of `rea_flight_recorder`.
