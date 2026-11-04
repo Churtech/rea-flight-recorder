@@ -9,6 +9,7 @@ export 'src/interceptors/flight_recorder_dio_interceptor.dart';
 export 'src/interceptors/flight_recorder_http_sanitizer.dart';
 export 'src/models/flight_log_entry.dart';
 export 'src/models/flight_log_level.dart';
+export 'src/models/flight_recorder_icons.dart';
 export 'src/models/flight_recorder_options.dart';
 export 'src/models/flight_recorder_strings.dart';
 export 'src/models/flight_recorder_theme.dart';

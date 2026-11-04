@@ -1,3 +1,8 @@
+## 0.1.2
+
+* Add `FlightRecorderIcons` model to allow arbitrary custom icon widgets (FontAwesome, Cupertino, SVG, etc.) across all modal actions and headers without coupling the library to third-party icon packages.
+* Support `icons` parameter in `FlightRecorderModal` and `FlightRecorder.instance.showViewer`.
+
 ## 0.1.1
 
 * Expand `share_plus` dependency constraint to `>=10.0.0 <14.0.0` for full compatibility with apps on `share_plus` 13.x.

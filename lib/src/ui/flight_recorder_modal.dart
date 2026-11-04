@@ -5,6 +5,7 @@ import 'package:flutter/services.dart';
 import 'package:share_plus/share_plus.dart';
 
 import '../models/flight_log_level.dart';
+import '../models/flight_recorder_icons.dart';
 import '../models/flight_recorder_strings.dart';
 import '../models/flight_recorder_theme.dart';
 import '../storage/flight_log_storage.dart';
@@ -14,12 +15,14 @@ class FlightRecorderModal extends StatefulWidget {
   final FlightLogStorage storage;
   final FlightRecorderTheme theme;
   final FlightRecorderStrings strings;
+  final FlightRecorderIcons icons;
 
   const FlightRecorderModal({
     super.key,
     required this.storage,
     this.theme = const FlightRecorderTheme(),
     this.strings = const FlightRecorderStrings(),
+    this.icons = const FlightRecorderIcons(),
   });
 
   /// Displays the modal dialog over the current [context].
@@ -28,9 +31,11 @@ class FlightRecorderModal extends StatefulWidget {
     required FlightLogStorage storage,
     FlightRecorderTheme? theme,
     FlightRecorderStrings? strings,
+    FlightRecorderIcons? icons,
   }) {
     final effectiveTheme = theme ?? const FlightRecorderTheme();
     final effectiveStrings = strings ?? const FlightRecorderStrings();
+    final effectiveIcons = icons ?? const FlightRecorderIcons();
 
     return showDialog<void>(
       context: context,
@@ -47,6 +52,7 @@ class FlightRecorderModal extends StatefulWidget {
           storage: storage,
           theme: effectiveTheme,
           strings: effectiveStrings,
+          icons: effectiveIcons,
         ),
       ),
     );
@@ -166,11 +172,12 @@ class _FlightRecorderModalState extends State<FlightRecorderModal> {
             padding: const EdgeInsets.fromLTRB(16, 12, 8, 8),
             child: Row(
               children: [
-                Icon(
-                  Icons.terminal_rounded,
-                  color: theme.colorScheme.primary,
-                  size: 24,
-                ),
+                widget.icons.terminal ??
+                    Icon(
+                      Icons.terminal_rounded,
+                      color: theme.colorScheme.primary,
+                      size: 24,
+                    ),
                 const SizedBox(width: 8),
                 Expanded(
                   child: Text(
@@ -182,7 +189,7 @@ class _FlightRecorderModalState extends State<FlightRecorderModal> {
                   ),
                 ),
                 IconButton(
-                  icon: const Icon(Icons.close),
+                  icon: widget.icons.close ?? const Icon(Icons.close),
                   tooltip: widget.strings.close,
                   onPressed: () => Navigator.of(context).pop(),
                 ),
@@ -198,10 +205,12 @@ class _FlightRecorderModalState extends State<FlightRecorderModal> {
               controller: _searchController,
               decoration: InputDecoration(
                 hintText: widget.strings.searchHint,
-                prefixIcon: const Icon(Icons.search, size: 20),
+                prefixIcon:
+                    widget.icons.search ?? const Icon(Icons.search, size: 20),
                 suffixIcon: _searchQuery.isNotEmpty
                     ? IconButton(
-                        icon: const Icon(Icons.clear, size: 18),
+                        icon: widget.icons.clearSearch ??
+                            const Icon(Icons.clear, size: 18),
                         onPressed: () {
                           _searchController.clear();
                           setState(() => _searchQuery = '');
@@ -414,20 +423,23 @@ class _FlightRecorderModalState extends State<FlightRecorderModal> {
                 Row(
                   children: [
                     IconButton.outlined(
-                      icon: const Icon(Icons.delete_outline, size: 20),
+                      icon: widget.icons.delete ??
+                          const Icon(Icons.delete_outline, size: 20),
                       tooltip: widget.strings.clearLogs,
                       onPressed: _confirmAndClear,
                     ),
                     const SizedBox(width: 8),
                     IconButton.outlined(
-                      icon: const Icon(Icons.copy_rounded, size: 20),
+                      icon: widget.icons.copy ??
+                          const Icon(Icons.copy_rounded, size: 20),
                       tooltip: widget.strings.copyLogs,
                       onPressed: _copyLogs,
                     ),
                   ],
                 ),
                 ElevatedButton.icon(
-                  icon: const Icon(Icons.share_rounded, size: 18),
+                  icon: widget.icons.export ??
+                      const Icon(Icons.share_rounded, size: 18),
                   label: Text(widget.strings.exportLogs),
                   onPressed: _exportLogs,
                 ),
@@ -464,11 +476,12 @@ class _FlightRecorderModalState extends State<FlightRecorderModal> {
                       child: Row(
                         mainAxisSize: MainAxisSize.min,
                         children: [
-                          Icon(
-                            Icons.check_circle_rounded,
-                            size: 18,
-                            color: theme.colorScheme.onInverseSurface,
-                          ),
+                          widget.icons.feedbackSuccess ??
+                              Icon(
+                                Icons.check_circle_rounded,
+                                size: 18,
+                                color: theme.colorScheme.onInverseSurface,
+                              ),
                           const SizedBox(width: 8),
                           Flexible(
                             child: Text(

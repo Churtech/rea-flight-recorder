@@ -340,6 +340,37 @@ void main() {
 
       expect(find.textContaining('Logs copied'), findsOneWidget);
     });
+
+    testWidgets('renders custom icon widgets when provided', (tester) async {
+      final storage = FlightLogStorage(
+        options: const FlightRecorderOptions(enableFilePersistence: false),
+      );
+
+      await tester.pumpWidget(
+        MaterialApp(
+          home: Scaffold(
+            body: FlightRecorderModal(
+              storage: storage,
+              icons: const FlightRecorderIcons(
+                terminal: Text('CUSTOM_TERMINAL'),
+                close: Text('CUSTOM_CLOSE'),
+                search: Text('CUSTOM_SEARCH'),
+                delete: Text('CUSTOM_DELETE'),
+                copy: Text('CUSTOM_COPY'),
+                export: Text('CUSTOM_EXPORT'),
+              ),
+            ),
+          ),
+        ),
+      );
+
+      expect(find.text('CUSTOM_TERMINAL'), findsOneWidget);
+      expect(find.text('CUSTOM_CLOSE'), findsOneWidget);
+      expect(find.text('CUSTOM_SEARCH'), findsOneWidget);
+      expect(find.text('CUSTOM_DELETE'), findsOneWidget);
+      expect(find.text('CUSTOM_COPY'), findsOneWidget);
+      expect(find.text('CUSTOM_EXPORT'), findsOneWidget);
+    });
   });
 }
 

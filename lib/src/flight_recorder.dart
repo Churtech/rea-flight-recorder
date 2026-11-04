@@ -4,6 +4,7 @@ import 'package:flutter/widgets.dart';
 import 'interceptors/flight_recorder_http_sanitizer.dart';
 import 'models/flight_log_entry.dart';
 import 'models/flight_log_level.dart';
+import 'models/flight_recorder_icons.dart';
 import 'models/flight_recorder_options.dart';
 import 'models/flight_recorder_strings.dart';
 import 'models/flight_recorder_theme.dart';
@@ -246,12 +247,14 @@ class FlightRecorder {
     BuildContext context, {
     FlightRecorderTheme? theme,
     FlightRecorderStrings? strings,
+    FlightRecorderIcons? icons,
   }) {
     return FlightRecorderModal.show(
       context,
       storage: _storage,
       theme: theme,
       strings: strings,
+      icons: icons,
     );
   }
 

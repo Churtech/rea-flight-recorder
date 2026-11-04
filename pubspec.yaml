@@ -1,6 +1,6 @@
 name: rea_flight_recorder
 description: In-app diagnostic blackbox and flight recorder for Flutter. Captures logs, crashes, and network calls in a rotating buffer with a developer viewer modal.
-version: 0.1.1
+version: 0.1.2
 homepage: https://github.com/Churtech/rea-flight-recorder
 repository: https://github.com/Churtech/rea-flight-recorder.git
 issue_tracker: https://github.com/Churtech/rea-flight-recorder/issues
