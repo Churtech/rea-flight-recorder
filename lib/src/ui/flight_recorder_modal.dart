@@ -205,8 +205,13 @@ class _FlightRecorderModalState extends State<FlightRecorderModal> {
               controller: _searchController,
               decoration: InputDecoration(
                 hintText: widget.strings.searchHint,
-                prefixIcon:
-                    widget.icons.search ?? const Icon(Icons.search, size: 20),
+                prefixIcon: widget.icons.search != null
+                    ? Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        mainAxisSize: MainAxisSize.min,
+                        children: [widget.icons.search!],
+                      )
+                    : const Icon(Icons.search, size: 20),
                 suffixIcon: _searchQuery.isNotEmpty
                     ? IconButton(
                         icon: widget.icons.clearSearch ??

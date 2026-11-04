@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 
 import '../flight_recorder.dart';
+import '../models/flight_recorder_icons.dart';
 import '../models/flight_recorder_strings.dart';
 import '../models/flight_recorder_theme.dart';
 
@@ -46,6 +47,9 @@ class FlightRecorderTrigger extends StatefulWidget {
   /// Optional custom localized strings for the modal viewer.
   final FlightRecorderStrings? strings;
 
+  /// Optional custom icons for the modal viewer.
+  final FlightRecorderIcons? icons;
+
   /// Whether to emit haptic feedback when the viewer triggers.
   final bool enableHaptics;
 
@@ -60,6 +64,7 @@ class FlightRecorderTrigger extends StatefulWidget {
     this.multiTapWindow = const Duration(milliseconds: 2500),
     this.theme,
     this.strings,
+    this.icons,
     this.enableHaptics = true,
     this.onCustomTrigger,
   });
@@ -90,6 +95,7 @@ class _FlightRecorderTriggerState extends State<FlightRecorderTrigger> {
         context,
         theme: widget.theme,
         strings: widget.strings,
+        icons: widget.icons,
       );
     }
   }

@@ -1,6 +1,18 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:rea_flight_recorder/rea_flight_recorder.dart';
+
+const _fontAwesomeIcons = FlightRecorderIcons(
+  terminal: FaIcon(FontAwesomeIcons.terminal, size: 20),
+  close: FaIcon(FontAwesomeIcons.xmark, size: 20),
+  search: FaIcon(FontAwesomeIcons.magnifyingGlass, size: 16),
+  clearSearch: FaIcon(FontAwesomeIcons.xmark, size: 16),
+  delete: FaIcon(FontAwesomeIcons.trashCan, size: 18),
+  copy: FaIcon(FontAwesomeIcons.copy, size: 18),
+  export: FaIcon(FontAwesomeIcons.download, size: 16),
+  feedbackSuccess: FaIcon(FontAwesomeIcons.circleCheck, size: 16, color: Colors.greenAccent),
+);
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -151,6 +163,7 @@ class _HomeScreenState extends State<HomeScreen> {
             onPressed: () => FlightRecorder.instance.showViewer(
               context,
               strings: FlightRecorderStrings.spanish(),
+              icons: _fontAwesomeIcons,
             ),
           ),
         ],
@@ -224,6 +237,7 @@ class _HomeScreenState extends State<HomeScreen> {
               FlightRecorderTrigger(
                 mode: FlightRecorderTriggerMode.longPress,
                 strings: FlightRecorderStrings.spanish(),
+                icons: _fontAwesomeIcons,
                 child: Container(
                   padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                   decoration: BoxDecoration(
