@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'flight_log_level.dart';
 
 /// Customizable visual styling for the Flight Recorder modal viewer.

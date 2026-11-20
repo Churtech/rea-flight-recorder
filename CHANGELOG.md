@@ -1,3 +1,11 @@
+## 0.1.3
+
+* Replace `package:flutter/material.dart` import with `package:flutter/widgets.dart` in `FlightRecorderTheme` to decouple from Material Design and eliminate deprecation notices on Flutter 3.47+.
+* Ignore library deprecation diagnostic for `package:flutter/material.dart` in `FlightRecorderModal` to preserve backward compatibility across all Flutter releases without forcing early adoption of `package:material_ui`.
+* Fix unresolved doc references for `FaIcon`, `SvgPicture`, `FlutterError.onError`, and `PlatformDispatcher.instance.onError` in DartDoc.
+* Remove redundant library name in `rea_flight_recorder.dart` conforming to modern Dart conventions (`unnecessary_library_name`).
+* Upgrade `flutter_lints` constraint to `">=3.0.0 <7.0.0"`.
+
 ## 0.1.2
 
 * Add `FlightRecorderIcons` model to allow arbitrary custom icon widgets (FontAwesome, Cupertino, SVG, etc.) across all modal actions and headers without coupling the library to third-party icon packages.

@@ -2,7 +2,7 @@
 ///
 /// Captures logs, errors, and network traffic into a memory ring buffer
 /// and rotating file with an interactive in-app developer modal viewer.
-library rea_flight_recorder;
+library;
 
 export 'src/flight_recorder.dart';
 export 'src/interceptors/flight_recorder_dio_interceptor.dart';

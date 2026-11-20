@@ -18,8 +18,8 @@ class FlightRecorderOptions {
   /// Whether to automatically redact known sensitive keys in metadata (passwords, tokens, cards).
   final bool sanitizeSecrets;
 
-  /// Whether to automatically bind global error hooks ([FlutterError.onError] and [PlatformDispatcher.instance.onError])
-  /// during [FlightRecorder.init]. Defaults to false.
+  /// Whether to automatically bind global error hooks (`FlutterError.onError` and `PlatformDispatcher.instance.onError`)
+  /// during `FlightRecorder.init`. Defaults to false.
   final bool attachErrorHooks;
 
   const FlightRecorderOptions({

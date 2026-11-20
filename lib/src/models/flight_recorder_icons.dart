@@ -2,7 +2,7 @@ import 'package:flutter/widgets.dart';
 
 /// Customizable icon configuration for the Flight Recorder modal viewer.
 ///
-/// Accepts arbitrary [Widget] instances (such as [Icon], [FaIcon], [SvgPicture], or image assets)
+/// Accepts arbitrary [Widget] instances (such as [Icon], `FaIcon`, `SvgPicture`, or image assets)
 /// to allow complete decoupling from any specific icon pack or third-party dependency.
 class FlightRecorderIcons {
   /// Icon displayed in the modal header next to the title.
